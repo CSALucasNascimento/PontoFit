@@ -1,15 +1,21 @@
 import {UserActions} from './user.actions';
-import {PersonalActions} from './personal.actions';
+import {CategoryActions} from './category.actions';
+import {TagActions} from './tag.actions';
+import {QuestionActions} from './question.actions';
 import {UIStateActions} from './ui-state.actions';
 
 export {
-    PersonalActions,
     UserActions,
+    CategoryActions,
+    TagActions,
+    QuestionActions,
     UIStateActions
 };
 
 export default [
-    PersonalActions,
     UserActions,
+    CategoryActions,
+    TagActions,
+    QuestionActions,
     UIStateActions
 ];

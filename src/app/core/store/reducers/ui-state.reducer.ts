@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs/Observable';
 import {Action} from '@ngrx/store';
 
 import { UIStateActions } from '../actions';

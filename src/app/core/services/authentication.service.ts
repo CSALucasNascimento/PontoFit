@@ -1,17 +1,18 @@
-import { Injectable } from '@angular/core';
+import { Injectable }    from '@angular/core';
 import { MdDialog, MdDialogRef } from '@angular/material';
 import { AngularFire } from 'angularfire2';
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs/Observable';
 import '../../rxjs-extensions';
 
 import { AppStore } from '../store/app-store';
-import { SigninComponent } from '../../public/signin/signin.component';
+import { LoginComponent } from '../components';
 import { UserActions, UIStateActions } from '../store/actions';
-import { User } from '../../model/user';
+import { User } from '../../model';
 
 @Injectable()
 export class AuthenticationService {
-  dialogRef: MdDialogRef<SigninComponent>;
+  dialogRef: MdDialogRef<LoginComponent>;
 
   constructor(private store: Store<AppStore>,
               private userActions: UserActions,
@@ -34,6 +35,15 @@ export class AuthenticationService {
     });
   }
 
+  getUserRoles(user: User): Observable<User> {
+    return this.af.database.object('/users/' + user.userId + "/roles")
+           .take(1)
+           .map(roles => {
+             user.roles = roles;
+             return user;
+            });
+  }
+
   ensureLogin = function(url?: string) {
     if (!this.isAuthenticated)
       this.showLogin(url);
@@ -41,18 +51,18 @@ export class AuthenticationService {
 
   showLogin = function(url?: string) {
     this.store.dispatch(this.uiStateActions.setLoginRedirectUrl(url));
-    this.dialogRef = this.dialog.open(SigninComponent, {
+    this.dialogRef = this.dialog.open(LoginComponent, {
       disableClose: false
     });
   };
 
   logout = function() {
-    this.af.auth.logout();
+    this.af.auth.logout();    
   };
 
   get isAuthenticated () : boolean {
     let user: User;
-    this.store.take(1).subscribe(s => user = s.user);
+    this.store.take(1).subscribe(s => user = s.user)
     if (user)
       return true;
 
@@ -61,7 +71,7 @@ export class AuthenticationService {
 
   get user () : User {
     let user: User;
-    this.store.take(1).subscribe(s => user = s.user);
+    this.store.take(1).subscribe(s => user = s.user)
     return user;
   };
 

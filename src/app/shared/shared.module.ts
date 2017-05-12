@@ -1,32 +1,35 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { ReactiveFormsModule }     from '@angular/forms';
 
 import { SharedMaterialModule } from './shared-material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { NavbarComponent } from './navbar/navbar.component';
-import { FooterComponent } from './footer/footer.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
+import { NavbarComponent } from './components';
 
 @NgModule({
+  declarations: [
+    NavbarComponent
+  ],
   imports: [
     CommonModule,
-    RouterModule,
+
+    // Forms
+    ReactiveFormsModule,
+
+    //Material
     SharedMaterialModule,
+
+    //Flex
     FlexLayoutModule
-  ],
-  declarations: [
-    NavbarComponent,
-    FooterComponent,
-    SidebarComponent
+
   ],
   providers: [
   ],
-  exports: [
+  exports:  [
     NavbarComponent,
-    FooterComponent,
-    SidebarComponent,
+    CommonModule,
+    ReactiveFormsModule,
     FlexLayoutModule,
     SharedMaterialModule
   ]

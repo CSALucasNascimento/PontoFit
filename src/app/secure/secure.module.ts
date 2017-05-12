@@ -1,24 +1,24 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 
-import { SharedModule } from '../shared/shared.module';
-import { SecureRoutingModule } from './secure-routing.module';
+import { SharedModule } from  '../shared/shared.module';
+import { SecureRoutingModule } from  './routing/secure-routing.module';
 
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { SecureComponent } from './secure.component';
+import { DashboardComponent,
+         AdminComponent,
+         CategoriesComponent,
+         AdminQuestionsComponent } from './components';
 
 @NgModule({
+  declarations: [
+    DashboardComponent,
+    AdminComponent,
+    CategoriesComponent,
+    AdminQuestionsComponent
+  ],
   imports: [
-    CommonModule,
-    RouterModule,
-      
+    //rwa modules
     SharedModule,
     SecureRoutingModule
-  ],
-  declarations: [
-    DashboardComponent, 
-    SecureComponent
   ]
 })
 export class SecureModule { }

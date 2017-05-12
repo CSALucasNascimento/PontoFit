@@ -1,40 +1,28 @@
-import { NgModule } from '@angular/core';
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgModule } from '@angular/core';
 
-
-/* Routing Module */
-import { AppRoutingModule } from './app-routing.module';
-
-/* Feature Modules */
 import { CoreModule } from './core/core.module';
-import { PublicModule } from './public/public.module';
-import { SecureModule } from './secure/secure.module';
-import { SharedModule } from './shared/shared.module';
+import { SharedModule } from  './shared/shared.module';
+import { RoutingModule } from  './routing/routing.module';
 
-import { AppComponent } from './app.component';
+import { AppComponent, DashboardComponent } from './components';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent, DashboardComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
 
-    AppRoutingModule,
+    //rwa modules
     CoreModule,
-    SecureModule,
     SharedModule,
-    PublicModule
+    RoutingModule
   ],
   providers: [
-    { provide: LocationStrategy, useClass: HashLocationStrategy }
   ],
-  bootstrap: [
-    AppComponent
-  ]
+  bootstrap: [AppComponent]
 })
-
-export class AppModule {}
+export class AppModule { }

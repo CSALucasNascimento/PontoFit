@@ -1,4 +1,15 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
-@import './assets/sass/material-dashboard';
+// @import './assets/sass/material-dashboard';
 // @import './assets/sass/demo';
+
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

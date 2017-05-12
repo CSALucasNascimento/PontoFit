@@ -1,21 +1,34 @@
+import { User, Category, Question } from '../../model';
+
+import { user, categories, categoryDictionary, tags, 
+         questions, unpublishedQuestions, sampleQuestions, questionSaveStatus, userQuestions,
+         loginRedirectUrl } from './reducers';
+
 import { combineReducers } from '@ngrx/store';
 import { compose } from '@ngrx/core/compose';
 
-import { User } from '../../model/user';
-import { Personal } from '../../model/personal';
-
-import { user } from './reducers/user.reducer';
-import { personal } from './reducers/personal.reducer';
-import { loginRedirectUrl } from './reducers/ui-state.reducer';
-
 export interface AppStore {
   user: User;
-  personal: Personal;
+  categories: Category[];
+  categoryDictionary: {[key: number]: Category};
+  tags: string[];
+  questions: Question[];
+  unpublishedQuestions: Question[];
+  userQuestions: Question[];
+  sampleQuestions: Question[];
+  questionSaveStatus: string;
   loginRedirectUrl: string;
 }
 
 export default compose(combineReducers)({
   user: user,
-  personal: personal,
+  categories: categories,
+  categoryDictionary: categoryDictionary,
+  tags: tags,
+  questions: questions,
+  unpublishedQuestions: unpublishedQuestions,
+  userQuestions: userQuestions,
+  sampleQuestions: sampleQuestions,
+  questionSaveStatus: questionSaveStatus,
   loginRedirectUrl: loginRedirectUrl
 });

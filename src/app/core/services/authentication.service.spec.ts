@@ -9,7 +9,7 @@ import { Store } from '@ngrx/store';
 import { AppStore } from '../store/app-store';
 import { MockStore, TEST_DATA } from '../../testing';
 import { AuthenticationService } from './authentication.service';
-// import { LoginComponent } from '../components';
+import { LoginComponent } from '../components';
 import { UserActions, UIStateActions } from '../store/actions';
 import { User } from '../../model';
 
