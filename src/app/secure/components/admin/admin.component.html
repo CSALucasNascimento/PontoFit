@@ -1,7 +1,13 @@
-<nav md-tab-nav-bar *ngIf="user?.roles.admin">
-  <a md-tab-link routerLinkActive="active" [routerLink]="['./']">Dashboard</a>
-  <a md-tab-link routerLinkActive="active" [routerLink]="['./categories']">Categories</a>
-  <a md-tab-link routerLinkActive="active" [routerLink]="['./tags']">Tags</a>
-  <a md-tab-link routerLinkActive="active" [routerLink]="['./questions']">Questions</a>
-</nav>
-<router-outlet></router-outlet>
+<div class="wrapper">
+  <div class="sidebar" data-color='red' data-image="">
+    <app-sidebar></app-sidebar>
+    <div class="sidebar-background" style="background-image: url(src/assets/img/sidebar.jpg)"></div>
+  </div>
+  <div class="main-panel">
+    <app-navbar></app-navbar>
+    <div class="wrapper">
+      <app-admin></app-admin>
+      <app-footer></app-footer>
+    </div>
+  </div>
+</div>

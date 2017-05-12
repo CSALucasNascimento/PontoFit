@@ -5,11 +5,12 @@ import { ReactiveFormsModule }     from '@angular/forms';
 import { SharedMaterialModule } from './shared-material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { NavbarComponent } from './components';
+import { NavbarComponent, FooterComponent } from './components';
 
 @NgModule({
   declarations: [
-    NavbarComponent
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
@@ -28,6 +29,7 @@ import { NavbarComponent } from './components';
   ],
   exports:  [
     NavbarComponent,
+    FooterComponent,
     CommonModule,
     ReactiveFormsModule,
     FlexLayoutModule,

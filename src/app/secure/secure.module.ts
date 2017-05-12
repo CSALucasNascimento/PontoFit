@@ -5,15 +5,13 @@ import { SecureRoutingModule } from  './routing/secure-routing.module';
 
 import { DashboardComponent,
          AdminComponent,
-         CategoriesComponent,
-         AdminQuestionsComponent } from './components';
+         CategoriesComponent } from './components';
 
 @NgModule({
   declarations: [
     DashboardComponent,
     AdminComponent,
-    CategoriesComponent,
-    AdminQuestionsComponent
+    CategoriesComponent
   ],
   imports: [
     //rwa modules

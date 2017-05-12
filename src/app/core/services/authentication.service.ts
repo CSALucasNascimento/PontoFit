@@ -36,6 +36,7 @@ export class AuthenticationService {
   }
 
   getUserRoles(user: User): Observable<User> {
+    //noinspection TypeScriptValidateTypes
     return this.af.database.object('/users/' + user.userId + "/roles")
            .take(1)
            .map(roles => {
@@ -62,6 +63,7 @@ export class AuthenticationService {
 
   get isAuthenticated () : boolean {
     let user: User;
+    //noinspection TypeScriptValidateTypes
     this.store.take(1).subscribe(s => user = s.user)
     if (user)
       return true;
@@ -71,6 +73,7 @@ export class AuthenticationService {
 
   get user () : User {
     let user: User;
+    //noinspection TypeScriptValidateTypes
     this.store.take(1).subscribe(s => user = s.user)
     return user;
   };

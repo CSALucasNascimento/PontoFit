@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
 
+import { AuthenticationService } from '../../../core/services';
+
 import { AppStore } from '../../../core/store/app-store';
-import { AuthenticationService } from '../../../core/services/authentication.service';
 
 import { User } from '../../../model/user';
 
@@ -16,12 +17,34 @@ export class NavbarComponent implements OnInit {
   user: User;
   sub: any;
 
-  constructor(private store: Store<AppStore>,
-              private authService: AuthenticationService) {
-    this.sub = store.select(s => s.user).subscribe(user => this.user = user);
+  constructor(
+      private authService: AuthenticationService,
+      private store: Store<AppStore>) {
+
+    this.sub = store.select(s => s.user).subscribe(user => {
+      this.user = user
+    });
+
   }
 
   ngOnInit() {
   }
 
+  getTitle(){
+    return 'Dashboard';
+  }
+
+  ngOnDestroy() {
+    if (this.sub)
+      this.sub.unsubscribe();
+  }
+
+  login() {
+    this.authService.ensureLogin();
+  }
+
+  logout() {
+    this.authService.logout();
+  }
+  
 }

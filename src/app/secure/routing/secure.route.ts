@@ -1,6 +1,5 @@
 import { Routes, RouterModule }  from '@angular/router';
-import { DashboardComponent, CategoriesComponent,
-         AdminQuestionsComponent, AdminComponent }
+import { DashboardComponent, CategoriesComponent, AdminComponent }
   from '../components/index';
 import { AuthGuard } from '../../core/services';
 
@@ -19,10 +18,6 @@ export const secureRoutes: Routes = [
       {
         path: 'categories',
         component: CategoriesComponent
-      },
-      {
-        path: 'questions',
-        component: AdminQuestionsComponent
       }
 
     ]
