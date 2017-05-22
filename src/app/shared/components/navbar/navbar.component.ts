@@ -29,11 +29,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  getTitle(){
-    return 'Dashboard';
-  }
-
+  
   ngOnDestroy() {
     if (this.sub)
       this.sub.unsubscribe();

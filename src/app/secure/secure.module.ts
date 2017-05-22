@@ -3,18 +3,16 @@ import { NgModule } from '@angular/core';
 import { SharedModule } from  '../shared/shared.module';
 import { SecureRoutingModule } from  './routing/secure-routing.module';
 
-import { DashboardComponent,
-         AdminComponent,
-         CategoriesComponent } from './components';
+import {
+    DashboardComponent,
+    SecureComponent } from './components';
 
 @NgModule({
   declarations: [
     DashboardComponent,
-    AdminComponent,
-    CategoriesComponent
+    SecureComponent
   ],
   imports: [
-    //rwa modules
     SharedModule,
     SecureRoutingModule
   ]

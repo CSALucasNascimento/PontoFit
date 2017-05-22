@@ -12,13 +12,14 @@ import { User } from '../../model';
 
 @Injectable()
 export class AuthenticationService {
+  
   dialogRef: MdDialogRef<LoginComponent>;
 
   constructor(private store: Store<AppStore>,
               private userActions: UserActions,
               private uiStateActions: UIStateActions,
               public af: AngularFire,
-              public dialog: MdDialog) {
+              private dialog: MdDialog) {
 
   this.af.auth.subscribe(user => {
       if(user) {
@@ -52,9 +53,7 @@ export class AuthenticationService {
 
   showLogin = function(url?: string) {
     this.store.dispatch(this.uiStateActions.setLoginRedirectUrl(url));
-    this.dialogRef = this.dialog.open(LoginComponent, {
-      disableClose: false
-    });
+    this.dialogRef = this.dialog.open(LoginComponent);
   };
 
   logout = function() {

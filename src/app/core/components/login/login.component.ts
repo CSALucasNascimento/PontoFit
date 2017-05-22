@@ -49,10 +49,6 @@ export class LoginComponent {
   }
 
   passwordLogin() {
-    this.passwordAuthDialogRef = this.dialog.open(PasswordAuthComponent, {
-      disableClose: false,
-      width: "600px",
-      height: "400px"
-    });
+    this.passwordAuthDialogRef = this.dialog.open(PasswordAuthComponent);
   }
 }

@@ -1,21 +1,18 @@
-import { Routes, RouterModule }  from '@angular/router';
-import { DashboardComponent }
-  from '../components/index';
+import { Routes }  from '@angular/router';
+
 import { AuthGuard } from '../core/services';
+
+import { PublicComponent } from '../public/components';
+import { SecureComponent } from '../secure/components'
 
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: '/dashboard',
-    pathMatch: 'full'
-  },
-  {
-    path: 'dashboard',
-    component: DashboardComponent
+    component: PublicComponent,
   },
   {
     path: 'admin',
-    loadChildren: 'app/secure/secure.module#SecureModule',
+    component: SecureComponent,
     canActivate: [AuthGuard],
     canLoad: [AuthGuard]
   }

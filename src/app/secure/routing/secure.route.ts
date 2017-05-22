@@ -1,25 +1,23 @@
-import { Routes, RouterModule }  from '@angular/router';
-import { DashboardComponent, CategoriesComponent, AdminComponent }
-  from '../components/index';
+import { Routes }  from '@angular/router';
+import { DashboardComponent, SecureComponent }from '../components/index';
 import { AuthGuard } from '../../core/services';
 
 export const secureRoutes: Routes = [
   {
     path: '',
-    component: AdminComponent,
+    component: SecureComponent,
     canActivate: [AuthGuard],
     canActivateChild: [AuthGuard],
     children: [
       {
         path: '',
-        pathMatch: 'full',
-        component: DashboardComponent
+        redirectTo: '/dashboard',
+        pathMatch: 'full'
       },
       {
-        path: 'categories',
-        component: CategoriesComponent
+        path: 'dashboard',
+        component: DashboardComponent
       }
-
     ]
   }
 ];
