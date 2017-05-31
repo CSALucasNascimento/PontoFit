@@ -4,6 +4,9 @@ h1, .h1 {
 }
 h2, .h2{
     font-size: $font-size-h2;
+    margin: 1em 0 .5em;
+    letter-spacing: .005em;
+    line-height: 1.06667;
 }
 h3, .h3{
     font-size: $font-size-h3;

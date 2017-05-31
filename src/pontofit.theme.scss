@@ -30,7 +30,6 @@ $pontofit-app-dark-theme:   mat-dark-theme($dark-primary, $dark-accent, $dark-wa
   @include angular-material-theme($pontofit-app-dark-theme);
 }
 
-
 .lines-helper {
   position: fixed;
   top: 0;

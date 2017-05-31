@@ -103,6 +103,7 @@
 
     > li > .dropdown-menu > li > a {
       color: $primary-color-dark;
+      padding: 7px 20px 3px 20px;
       &:hover,
       &:focus {
         color: inherit;
