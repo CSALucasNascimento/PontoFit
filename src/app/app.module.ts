@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 import { RoutingModule } from  './routing/routing.module';
 import { CoreModule } from './core/core.module';
@@ -26,6 +27,7 @@ import { AppComponent } from './app.component';
     PublicModule
   ],
   providers: [
+    {provide: LocationStrategy, useClass: HashLocationStrategy},
   ],
   bootstrap: [AppComponent]
 })

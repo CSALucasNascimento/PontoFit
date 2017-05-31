@@ -22,7 +22,7 @@ export class NavbarComponent implements OnInit {
       private store: Store<AppStore>) {
 
     this.sub = store.select(s => s.user).subscribe(user => {
-      this.user = user
+      this.user = user;
     });
 
   }

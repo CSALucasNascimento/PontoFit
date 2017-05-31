@@ -6,45 +6,73 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue.
-$pontofit-app-primary: mat-palette($mat-indigo);
-$pontofit-app-accent:  mat-palette($mat-pink, A200, A100, A400);
+$pontofit-app-primary: mat-palette($mat-deep-orange);
+$pontofit-app-accent:  mat-palette($mat-blue-grey, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
 $pontofit-app-warn:    mat-palette($mat-red);
 
-//customize the background theme
-$pontofit-app-theme-background: (
-  status-bar: map_get($mat-teal, 300),
-  app-bar:    map_get($mat-teal, 100),
-  background: map_get($mat-teal, 50),
-  hover:      rgba(black, 0.04),
-  card:       white,
-  dialog:     white,
-  disabled-button: $black-12-opacity,
-  raised-button: white,
-  focused-button: $black-6-opacity,
-  selected-button: map_get($mat-grey, 300),
-  selected-disabled-button: map_get($mat-grey, 400),
-  disabled-button-toggle: map_get($mat-grey, 200),
-);
-
-//app theme funtion returns the theme from the palletes
-@function pontofit-app-theme-fn($primary, $accent, $warn, $foreground, $background) {
-  @return (
-    primary: $primary,
-    accent: $accent,
-    warn: $warn,
-    is-dark: false,
-    foreground: $foreground,
-    background: $background,
-  );
-}
-
 // Create the theme object (a Sass map containing all of the palettes).
-$pontofit-app-theme: pontofit-app-theme-fn($pontofit-app-primary, $pontofit-app-accent, $pontofit-app-warn,
-                                       $mat-light-theme-foreground, $pontofit-app-theme-background);
+// $pontofit-app-theme: pontofit-app-theme-fn($pontofit-app-primary, $pontofit-app-accent, $pontofit-app-warn, $mat-light-theme-foreground, $pontofit-app-theme-background);
+$pontofit-app-theme: mat-light-theme($pontofit-app-primary, $pontofit-app-accent, $pontofit-app-warn);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include angular-material-theme($pontofit-app-theme);
+
+$dark-primary: mat-palette($mat-blue-grey);
+$dark-accent:  mat-palette($mat-amber, A200, A100, A400);
+$dark-warn:    mat-palette($mat-deep-orange);
+$pontofit-app-dark-theme:   mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+
+.pontofit-app-dark-theme {
+  @include angular-material-theme($pontofit-app-dark-theme);
+}
+
+
+.lines-helper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 6010;
+  pointer-events: none;
+  mix-blend-mode: luminosity;
+}
+
+.lines-helper .wrapper {
+  position: relative;
+}
+
+.lines-helper .line {
+  width: 1px;
+  height: 150vh;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: rgba(195,195,195,0.25);
+}
+
+.lines-helper .line:first-child {
+  left: 0;
+}
+
+.lines-helper .line:nth-child(2), .lines-helper .line:nth-of-type(2) {
+  left: 25%;
+  margin-left: -0.5px;
+}
+
+.lines-helper .line:nth-child(3), .lines-helper .line:nth-of-type(3) {
+  left: 50%;
+  margin-left: -0.5px;
+}
+
+.lines-helper .line:nth-child(4), .lines-helper .line:nth-of-type(4) {
+  right: 25%;
+  margin-right: -0.5px;
+}
+
+.lines-helper .line:last-child {
+  right: 0;
+}
