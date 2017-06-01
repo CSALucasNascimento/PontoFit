@@ -35,7 +35,7 @@ $pontofit-app-dark-theme:   mat-dark-theme($dark-primary, $dark-accent, $dark-wa
   top: 0;
   left: 0;
   right: 0;
-  z-index: 6010;
+  z-index: 999;
   pointer-events: none;
   mix-blend-mode: luminosity;
 }

@@ -199,6 +199,100 @@
     }
 }
 
+.btn-previous {
+
+    border: none;
+    border-radius: $border-radius-base;
+    position: relative;
+    padding: 5px;
+
+    span {
+        display: block;
+        position: relative;
+        z-index: 10;
+        padding: 4px 20px 6px 70px;
+        font-weight: inherit;
+        font-size: inherit;
+
+        &:before {
+            content: '';
+            display: block;
+            width: 2px;
+            height: 1.5rem;
+            margin-top: -11px;
+            position: absolute;
+            top: 50%;
+            left: 30px;
+            background: currentcolor;
+            -webkit-transform: rotate(55deg);
+            transform: rotate(55deg);
+        }
+
+        &:after {
+            content: '';
+            display: block;
+            width: 2px;
+            height: 1.5rem;
+            margin-top: -3px;
+            position: absolute;
+            top: 50%;
+            left: 30px;
+            background: currentcolor;
+            -webkit-transform: rotate(125deg);
+            transform: rotate(125deg);
+        }
+
+    }
+
+}
+
+.btn-next {
+
+    border: none;
+    border-radius: $border-radius-base;
+    position: relative;
+    padding: 5px;
+
+    span {
+        display: block;
+        position: relative;
+        z-index: 10;
+        padding: 4px 70px 6px 20px;
+        font-weight: inherit;
+        font-size: inherit;
+
+        &:before {
+            content: '';
+            display: block;
+            width: 2px;
+            height: 1.5rem;
+            margin-top: -11px;
+            position: absolute;
+            top: 50%;
+            right: 30px;
+            background: currentcolor;
+            -webkit-transform: rotate(-55deg);
+            transform: rotate(-55deg);
+        }
+
+        &:after {
+            content: '';
+            display: block;
+            width: 2px;
+            height: 1.5rem;
+            margin-top: -3px;
+            position: absolute;
+            top: 50%;
+            right: 29px;
+            background: currentcolor;
+            -webkit-transform: rotate(-125deg);
+            transform: rotate(-125deg);
+        }
+
+    }
+
+}
+
 .navbar .navbar-nav > li > a.btn{
     border: none;
     border-radius: $border-radius-base;

@@ -1,5 +1,5 @@
 import { Injectable }    from '@angular/core';
-import { MdDialog, MdDialogRef } from '@angular/material';
+import { MdDialog, MdDialogRef, MdDialogConfig } from '@angular/material';
 import { AngularFire } from 'angularfire2';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
@@ -12,7 +12,7 @@ import { User } from '../../model';
 
 @Injectable()
 export class AuthenticationService {
-  
+
   dialogRef: MdDialogRef<LoginComponent>;
 
   constructor(private store: Store<AppStore>,
