@@ -1,4 +1,5 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AngularFireModule, FirebaseAppConfig } from 'angularfire2';
 
@@ -31,6 +32,8 @@ export const firebaseConfig: FirebaseAppConfig = CONFIG.firebaseConfig;
   imports: [
     //firebase
     AngularFireModule.initializeApp(firebaseConfig),
+
+    FormsModule,
     
     //store
     StoreModule.provideStore(reducer),

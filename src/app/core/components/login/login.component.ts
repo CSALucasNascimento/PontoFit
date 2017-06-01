@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { MdDialogRef, MdDialog } from '@angular/material';
+import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
