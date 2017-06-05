@@ -1,50 +1,21 @@
-<div class="wrapper">
-  <div class="col-md-3">
-    <a class="navbar-brand" href="#"><img src="src/assets/img/android-logo-white.png"></a>
+<md-toolbar color="primary" fxLayoutAlign="center end">
+  <div class="wrapper">
+    <button md-button routerLink="/">
+      Pontofit
+    </button>
+    <!-- This fills the remaining space of the current row -->
+    <span class="fill-remaining-space"></span>
+    <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+      <button md-button routerLink="/products">Products</button>
+      <button md-button routerLink="/dashboard">Dashboard</button>
+    </div>
+    <button md-button [md-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm>
+      <md-icon>menu</md-icon>
+    </button>
   </div>
-  <div class="col-md-9">
-    <nav class="navbar navbar-transparent">
-      <div class="navbar-container container-fluid">
-        <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li>
-              <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
-                <i class="material-icons">dashboard</i>
-                <p class="hidden-lg hidden-md">Dashboard</p>
-              </a>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <i class="material-icons">notifications</i>
-                <span class="notification">5</span>
-                <p class="hidden-lg hidden-md">Notifications</p>
-              </a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Mike John responded to your email</a></li>
-                <li><a href="#">You have 5 new tasks</a></li>
-                <li><a href="#">You're now friend with Andrew</a></li>
-                <li><a href="#">Another Notification</a></li>
-                <li><a href="#">Another One</a></li>
-              </ul>
-            </li>
-            <li *ngIf="!user">
-              <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown" (click)="login()">
-                <i class="material-icons">person</i>
-                <p class="hidden-lg hidden-md">Profile</p>
-              </a>
-            </li>
-            <li *ngIf="user">
-              <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
-                <i class="material-icons">person</i> {{ user.displayName || user.email }}
-                <p class="hidden-lg hidden-md">Profile</p>
-              </a>
-              <ul class="dropdown-menu">
-                <li><a href="#" (click)="logout()">Logout</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </div>
-</div>
+</md-toolbar>
+<md-menu x-position="before" #menu="mdMenu">
+  <button md-menu-item routerLink="/products">Products</button>
+  <button md-menu-item routerLink="/dashboard">Dashboard</button>
+  <!--<button md-menu-item>Help</button>-->
+</md-menu>

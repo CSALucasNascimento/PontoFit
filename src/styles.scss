@@ -1,4 +1,50 @@
-$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
-@import './assets/sass/material-dashboard';
-@import './pontofit.theme';
-@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+// $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+// @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+@import '~@angular/material/theming';
+@import './assets/sass/pontofit.theme';
+
+// Include the base styles for Angular Material core.
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue.
+$pontofit-app-primary: mat-palette($mat-deep-orange);
+$pontofit-app-accent:  mat-palette($mat-blue-grey, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$pontofit-app-warn:    mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+// $pontofit-app-theme: pontofit-app-theme-fn($pontofit-app-primary, $pontofit-app-accent, $pontofit-app-warn, $mat-light-theme-foreground, $pontofit-app-theme-background);
+$pontofit-app-theme: mat-light-theme($pontofit-app-primary, $pontofit-app-accent, $pontofit-app-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($pontofit-app-theme);
+
+html {
+  font-family:sans-serif;
+  -webkit-text-size-adjust:100%;
+  -ms-text-size-adjust:100%
+}
+
+body{
+  margin:0
+}
+
+my-app {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}

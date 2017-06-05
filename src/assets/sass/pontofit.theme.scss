@@ -1,0 +1,50 @@
+@import './theme/_colors';
+@import './theme/_navbar';
+
+.lines-helper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 6010;
+  pointer-events: none;
+  mix-blend-mode: luminosity;
+}
+
+.lines-helper .wrapper {
+  position: relative;
+  width: 1440px;
+  max-width: 1440px;
+}
+
+.lines-helper .line {
+  width: 1px;
+  height: 150vh;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: rgba(195,195,195,0.25);
+}
+
+.lines-helper .line:first-child {
+  left: 0;
+}
+
+.lines-helper .line:nth-child(2), .lines-helper .line:nth-of-type(2) {
+  left: 25%;
+  margin-left: -0.5px;
+}
+
+.lines-helper .line:nth-child(3), .lines-helper .line:nth-of-type(3) {
+  left: 50%;
+  margin-left: -0.5px;
+}
+
+.lines-helper .line:nth-child(4), .lines-helper .line:nth-of-type(4) {
+  right: 25%;
+  margin-right: -0.5px;
+}
+
+.lines-helper .line:last-child {
+  right: 0;
+}
