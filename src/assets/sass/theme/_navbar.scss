@@ -3,26 +3,17 @@
   height: 95px;
   @include mat-elevation(2);
 
-  .wrapper {
-    display: inherit;
-    height: inherit;
-    max-width: 1440px;
-    width: 1440px;
+  .mat-button {
 
+    border-radius: 0;
 
-    .mat-button {
+    &:hover {
 
-      border-radius: 0;
+      box-shadow: inset 0 -3px 0 $primary-color-text;
 
-      &:hover {
+      .mat-button-ripple, .mat-button-focus-overlay {
 
-        box-shadow: inset 0 -3px 0 $primary-color-text;
-
-        .mat-button-ripple, .mat-button-focus-overlay {
-
-          background: transparent;
-
-        }
+        background: transparent;
 
       }
 
