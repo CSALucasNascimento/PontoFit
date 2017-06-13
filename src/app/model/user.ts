@@ -5,6 +5,7 @@ export class User {
   displayName: string;
   photoURL: String;
   email: string;
+  dob: Date;
   authState: FirebaseAuthState;
   roles: any[];
 

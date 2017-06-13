@@ -36,7 +36,8 @@ export class PasswordAuthComponent implements OnInit {
     this.signupForm = this.fb.group({
       email: ['', Validators.compose([Validators.required, Validators.pattern(EMAIL_REGEXP)])],
       password: ['', Validators.compose([Validators.required, Validators.minLength(6)])],
-      confirmPassword: ['', Validators.compose([Validators.required, Validators.minLength(6)])]
+      confirmPassword: ['', Validators.compose([Validators.required, Validators.minLength(6)])],
+      dob: ['', Validators.compose([Validators.required])],
       }, {validator: signupFormValidator}
     );
 
@@ -71,6 +72,9 @@ export class PasswordAuthComponent implements OnInit {
       password: this.signupForm.get('password').value
     }).then((user: FirebaseAuthState) => {
       //success
+      this.af.database().child(user.uid).set({
+          dob: this.signupForm.get('dob').value
+      });
       this.dialogRef.close();
     }, (error: Error) => {
       //error

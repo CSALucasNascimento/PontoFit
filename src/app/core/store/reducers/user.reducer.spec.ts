@@ -15,6 +15,7 @@ describe('Reducer: user', () => {
       "userId": "32489230-13423",
       "displayName": "trivia",
       "email": "trivia@realworldfullstack.io",
+      "dob": "20/05/1987",
       "roles": [],
       "authState": null
     };
@@ -29,6 +30,7 @@ describe('Reducer: user', () => {
       "userId": "32489230-13423",
       "displayName": "trivia",
       "email": "trivia@realworldfullstack.io",
+      "dob": "20/05/1987",
       "roles": [],
       "authState": null
     };
@@ -43,6 +45,7 @@ describe('Reducer: user', () => {
       "userId": "32489230-13423",
       "displayName": "trivia",
       "email": "trivia@realworldfullstack.io",
+      "dob": "20/05/1987",
       "roles": [],
       "authState": null
     };
