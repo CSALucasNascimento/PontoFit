@@ -23,6 +23,9 @@ export class NavbarComponent implements OnInit {
 
     this.sub = store.select(s => s.user).subscribe(user => {
       this.user = user;
+      if (user)
+        console.log(user);
+
     });
 
   }
