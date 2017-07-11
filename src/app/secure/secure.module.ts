@@ -5,12 +5,14 @@ import { SecureRoutingModule } from  './routing/secure-routing.module';
 
 import {
     DashboardComponent,
-    SecureComponent } from './components';
+    SecureComponent,
+    ProfileComponent} from './components';
 
 @NgModule({
   declarations: [
     DashboardComponent,
-    SecureComponent
+    SecureComponent,
+    ProfileComponent
   ],
   imports: [
     SharedModule,

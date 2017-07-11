@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule }     from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { RouterModule } from '@angular/router';
 
 import { SharedMaterialModule } from './shared-material.module';
@@ -20,6 +21,7 @@ import { NavbarComponent, SidebarComponent, FooterComponent } from './components
 
     // Forms
     ReactiveFormsModule,
+    FormsModule,
 
     //Material
     SharedMaterialModule,
@@ -36,6 +38,7 @@ import { NavbarComponent, SidebarComponent, FooterComponent } from './components
     FooterComponent,
     CommonModule,
     ReactiveFormsModule,
+    FormsModule,
     FlexLayoutModule,
     SharedMaterialModule
   ]

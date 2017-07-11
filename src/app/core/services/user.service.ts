@@ -28,5 +28,7 @@ export class UserService {
         }
     );
   }
+    
+  getUser(user: User) {}
 
 }
