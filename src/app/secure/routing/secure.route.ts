@@ -1,5 +1,5 @@
 import { Routes }  from '@angular/router';
-import { DashboardComponent, SecureComponent, ProfileComponent }from '../components/index';
+import { DashboardComponent, SecureComponent, ProfileComponent, PostComponent }from '../components/index';
 import { AuthGuard } from '../../core/services';
 
 export const secureRoutes: Routes = [
@@ -21,6 +21,10 @@ export const secureRoutes: Routes = [
       {
         path: 'profile',
         component: ProfileComponent
+      },
+      {
+        path: 'post',
+        component: PostComponent
       }
     ]
   }
