@@ -31,8 +31,8 @@ export class PostAddUpdateComponent implements OnInit, OnDestroy {
   postForm: FormGroup;
   post: Post;
 
-  autoTags: Tag[] = []; //auto computed based on match within Q/A
-  enteredTags: Tag[] = [];
+  autoTags: Tag[]; //auto computed based on match within Q/A
+  enteredTags: Tag[];
 
   user: User;
 
@@ -127,9 +127,9 @@ export class PostAddUpdateComponent implements OnInit, OnDestroy {
 
     let wordString: string = allTextValues.join(" ");
 
-    let matchingTags: string[] = [];
+    let matchingTags: Tag[] = [];
     this.tags.forEach(tag => {
-      let patt = new RegExp('\\b(' + tag.replace("+", "\\+") + ')\\b', "ig");
+      let patt = new RegExp('\\b(' + tag.tagName.replace("+", "\\+") + ')\\b', "ig");
       if (wordString.match(patt))
         matchingTags.push(tag);
     });

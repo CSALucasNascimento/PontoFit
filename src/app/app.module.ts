@@ -27,8 +27,13 @@ import { AppComponent } from './app.component';
     PublicModule
   ],
   providers: [
-    {provide: LocationStrategy, useClass: HashLocationStrategy},
+    {
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy
+    }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }

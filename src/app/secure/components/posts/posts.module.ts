@@ -20,8 +20,10 @@ import { SharedModule } from '../../../shared/shared.module';
     MyPostsComponent
   ],
   imports: [
-    MyPostsRoutingModule,
     SharedModule,
+
+    //routing
+    MyPostsRoutingModule,
 
     //store
     StoreModule.provideStore(reducer),

@@ -21,6 +21,10 @@ export const secureRoutes: Routes = [
       {
         path: 'profile',
         component: ProfileComponent
+      },
+      {
+        path: 'posts',
+        loadChildren: 'app/secure/components/posts/posts.module#PostsModule',
       }
     ]
   }

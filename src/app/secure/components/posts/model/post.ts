@@ -1,4 +1,4 @@
-// import { Category } from './category'
+import { Tag } from '../../tags/model'
 
 export class Post {
   id: string;
@@ -6,7 +6,7 @@ export class Post {
   // answers: Answer[];
   ordered: boolean;
   explanation?: string;
-  tags: string[];
+  tags?: Tag[];
   // categories?: Category[];
   // categoryIds: number[];
   published?: boolean;
