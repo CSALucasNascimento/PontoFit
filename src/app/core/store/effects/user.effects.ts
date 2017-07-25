@@ -11,11 +11,10 @@ export class UserEffects {
     constructor (
         private actions$: Actions,
         private userActions: UserActions,
-        private svc: AuthenticationService,
-        private svcu: UserService
+        private svc: UserService
     ) {}
 
-    @Effect() 
+    @Effect()
     loadUserRoles$ = this.actions$
         .ofType(UserActions.LOGIN_SUCCESS)
         .map((action) => action.payload)
@@ -25,6 +24,6 @@ export class UserEffects {
     @Effect()
     editUserProfile$ = this.actions$
         .ofType(UserActions.EDIT_USER_PROFILE)
-        .do((action) => this.svcu.editUserProfile(action.payload))
+        .do((action) => this.svc.editUserProfile(action.payload))
         .filter(() => false);
 }

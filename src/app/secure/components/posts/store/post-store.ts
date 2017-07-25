@@ -5,7 +5,7 @@ import { posts, unpublishedPosts, samplePosts, postSaveStatus, userPosts } from 
 import { combineReducers } from '@ngrx/store';
 import { compose } from '@ngrx/core/compose';
 
-export interface AppStore {
+export interface PostStore {
   posts: Post[];
   unpublishedPosts: Post[];
   userPosts: Post[];

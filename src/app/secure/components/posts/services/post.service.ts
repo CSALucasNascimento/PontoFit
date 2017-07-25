@@ -1,18 +1,18 @@
 import { Injectable }    from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
-import '../../rxjs-extensions';
+import '../../../../rxjs-extensions';
 
 import { Post, PostStatus } from '../model';
 import { User } from '../../../../model';
 import { Store } from '@ngrx/store';
-import { AppStore } from '../store/app-store';
+import { PostStore } from '../store/post-store';
 import { PostActions } from '../store/actions';
 
 @Injectable()
 export class PostService {
     constructor(private db: AngularFireDatabase,
-                private store: Store<AppStore>,
+                private store: Store<PostStore>,
                 private postActions: PostActions) {
     }
 

@@ -43,16 +43,6 @@ export class AuthenticationService {
     });
   }
 
-
-  getUserRoles(user: User): Observable<User> {
-    return this.db.object('/users/' + user.userId + "/roles")
-        .take(1)
-        .map(roles => {
-          user.roles = roles;
-          return user;
-        });
-  }
-
   ensureLogin = function(url?: string) {
     if (!this.isAuthenticated)
       this.showLogin(url);
@@ -76,12 +66,6 @@ export class AuthenticationService {
       return true;
 
     return false;
-  };
-
-  get user () : User {
-    let user: User;
-    this.store.take(1).subscribe(s => user = s.user)
-    return user;
   };
 
 }

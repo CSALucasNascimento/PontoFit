@@ -3,6 +3,8 @@ import * as firebase from 'firebase/app';
 export class User {
   userId: string;
   displayName: string;
+  firstName: string;
+  lastName: string;
   photoURL: String;
   email: string;
   idToken?: string;

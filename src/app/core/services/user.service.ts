@@ -17,18 +17,43 @@ export class UserService {
   ) {}
 
   editUserProfile(user: User) {
-    this.db.list('/user').push(user).then(
-        (ret) => {  //success
-          if (ret.key)
-            this.db.object('/users/' + user).update({[ret.key]: "unpublished"});
-          this.store.dispatch(this.userActions.editUserSuccess());
-        },
-        (error: Error) => {//error
-          console.error(error);
-        }
+    this.db.object('/users/' + user.userId).update({
+      dob: user.dob.toString(),
+      displayName: user.firstName + ' ' + user.lastName,
+      firstName: user.firstName,
+      lastName: user.lastName
+    }).then(
+      (ret)=> {
+        this.store.dispatch(this.userActions.editUserSuccess());
+      },
+      (error: Error) => {
+        console.error(error);
+      }
     );
   }
-    
-  getUser(user: User) {}
+
+  getUsers(): Observable<User[]> {
+    return this.db.list('/users')
+      .catch(error => {
+        console.log(error);
+        return Observable.of(null);
+      });
+  }
+
+  getUserRoles(user: User): Observable<User> {
+    return this.db.object('/users/' + user.userId + "/roles")
+      .take(1)
+      .map(roles => {
+        user.roles = roles;
+        return user;
+      });
+  }
+
+  get user () : User {
+    let user: User;
+    this.db.object('/users/' + user.userId);
+    this.store.take(1).subscribe(s => user = s.user);
+    return user;
+  };
 
 }

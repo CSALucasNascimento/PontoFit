@@ -1,0 +1,17 @@
+<md-card>
+  <button md-fab class="page-action" [routerLink]="['add']">
+    <md-icon class="md-24">add</md-icon>
+  </button>
+
+  <md-card-title>Posts</md-card-title>
+  <md-card-content>
+    <post-list [posts]="postsObs | async"
+                   class="flex-container"
+                   fxLayoutWrap="wrap"
+                   fxLayout="row"
+                   fxLayoutAlign="center" fxLayoutAlign.xs="start">
+    </post-list>
+  </md-card-content>
+</md-card>
+
+<!-- [categoryDictionary]="categoryDictObs | async" -->

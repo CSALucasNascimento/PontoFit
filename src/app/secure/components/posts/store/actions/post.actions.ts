@@ -1,5 +1,5 @@
-import {Injectable} from '@angular/core';
-import {Action} from '@ngrx/store';
+import { Injectable } from '@angular/core';
+import { Action } from '@ngrx/store';
 
 import { Post } from '../../model';
 import { User } from '../../../../../model';

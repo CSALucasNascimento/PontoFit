@@ -6,15 +6,14 @@ import { SecureRoutingModule } from  './routing/secure-routing.module';
 import {
     DashboardComponent,
     SecureComponent,
-    ProfileComponent,
-    PostComponent } from './components';
+    ProfileComponent
+} from './components';
 
 @NgModule({
   declarations: [
     DashboardComponent,
     SecureComponent,
-    ProfileComponent,
-    PostComponent
+    ProfileComponent
   ],
   imports: [
     SharedModule,

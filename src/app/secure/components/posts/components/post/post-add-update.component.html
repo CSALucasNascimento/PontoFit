@@ -1,0 +1,49 @@
+<md-card>
+  <form (ngSubmit)="onSubmit()" class="post-form" [formGroup]="postForm" novalidate>
+    <md-card-title>Add Post</md-card-title>
+    <!--
+    <md-card-header>
+      <md-card-title>
+        <md-select placeholder="Category" name="category" class="required" formControlName="category">
+          <md-option *ngFor="let category of categories" [value]="category.id">
+            {{category.categoryName}}
+          </md-option>
+        </md-select>
+        <p *ngIf="postForm.controls.category.errors && !postForm.controls.category.pristine" style="font-size: 11px;">Select a category</p>
+      </md-card-title>
+    </md-card-header>
+    -->
+
+    <md-card-content>
+      <md-input-container class="full-width required">
+        <input mdInput placeholder="Post" formControlName="postText" class="required">
+        <md-hint align="end" *ngIf="postForm.controls.postText.errors && !postForm.controls.postText.pristine" class="error">Post is required!</md-hint>
+      </md-input-container>
+
+      <p>
+        <md-input-container>
+          <input mdInput placeholder="Tag" formControlName="tags">
+        </md-input-container>
+        <button md-button class="add-tag-button" color="primary" [disabled]="postForm.controls.tags.value==''" (click)="addTag()">ADD</button>
+      </p>
+
+      <md-chip-list>
+        <md-chip *ngFor="let tag of autoTags">
+          {{tag}}
+        </md-chip>
+        <md-chip *ngFor="let tag of enteredTags">
+          {{tag}}  <span (click)="removeEnteredTag(tag)" class="remove-tag">x</span>
+        </md-chip>
+      </md-chip-list>
+    </md-card-content>
+
+    <div class="error" *ngIf="postForm.controls.postText.valid && postForm.hasError('tagCountInvalid')">
+      Must have atleast 3 tags
+    </div>
+
+    <md-card-actions>
+      <button md-button color="primary" type="submit" [disabled]="!postForm.valid">SAVE</button>
+      <button md-button>CANCEL</button>
+    </md-card-actions>
+  </form>
+</md-card>

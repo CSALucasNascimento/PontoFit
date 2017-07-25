@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Effect, Actions } from '@ngrx/effects';
 
-import { AppStore } from '../app-store';
+import { PostStore } from '../post-store';
 import { PostActions } from '../actions';
 import { Post } from '../../model';
 import { PostService } from '../../services';
