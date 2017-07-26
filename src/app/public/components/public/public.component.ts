@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { AppStore } from '../../../core/store/app-store';
+import { PostStore } from '../../../secure/components/posts/store/post-store';
+import { PostActions } from '../../../secure/components/posts/store/actions';
 
 import { User } from '../../../model/user';
 
@@ -10,20 +12,28 @@ import { User } from '../../../model/user';
   templateUrl: './public.component.html',
   styleUrls: ['./public.component.scss']
 })
-export class PublicComponent implements OnInit {
+export class PublicComponent implements OnInit, OnDestroy {
 
   user: User;
   sub: any;
 
   constructor(
-      private store: Store<AppStore>) {
-    this.sub = store.select(s => s.user).subscribe(user => {
+    private appStore: Store<AppStore>,
+    private postActions: PostActions,
+    private postStore: Store<PostStore>
+  ) {
+    this.sub = appStore.select(s => s.user).subscribe(user => {
       this.user = user
     });
 
   }
 
   ngOnInit() {
+    this.postStore.dispatch(this.postActions.loadPosts());
   }
-  
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
+  }
+
 }

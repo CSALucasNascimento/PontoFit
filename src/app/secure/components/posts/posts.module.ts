@@ -19,9 +19,11 @@ import { SharedModule } from '../../../shared/shared.module';
     PostAddUpdateComponent,
     MyPostsComponent
   ],
+  entryComponents: [
+    PostAddUpdateComponent,
+    MyPostsComponent
+  ],
   imports: [
-    SharedModule,
-
     //routing
     MyPostsRoutingModule,
 
@@ -30,6 +32,8 @@ import { SharedModule } from '../../../shared/shared.module';
 
     //ngrx effects
     EffectsModule.run(PostEffects),
+
+    SharedModule
   ],
   providers: [
     //Services

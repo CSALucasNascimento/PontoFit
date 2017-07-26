@@ -1,5 +1,5 @@
 import { Routes }  from '@angular/router';
-import { PublicComponent, DashboardComponent, HomeComponent } from '../components/index';
+import { PublicComponent, DashboardComponent, HomeComponent, PostsComponent } from '../components/index';
 
 export const publicRoutes: Routes = [
   {
@@ -13,6 +13,10 @@ export const publicRoutes: Routes = [
       {
         path: 'dashboard',
         component: DashboardComponent
+      },
+      {
+        path: 'posts',
+        component: PostsComponent
       }
     ]
   }

@@ -4,19 +4,26 @@ import { SharedModule } from  '../shared/shared.module';
 import { PublicRoutingModule } from  './routing/public-routing.module';
 
 import {
-    PublicComponent,
-    DashboardComponent,
-    HomeComponent } from './components';
+  PublicComponent,
+  DashboardComponent,
+  HomeComponent,
+  PostsComponent } from './components';
 
 @NgModule({
   declarations: [
     PublicComponent,
-    DashboardComponent, 
-    HomeComponent
+    DashboardComponent,
+    HomeComponent,
+    PostsComponent
   ],
   imports: [
     SharedModule,
     PublicRoutingModule
+  ],
+  providers: [
+  ],
+  exports: [
+    PostsComponent
   ]
 })
 export class PublicModule { }

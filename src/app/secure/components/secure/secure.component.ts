@@ -1,24 +1,39 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { Store } from '@ngrx/store';
 
-import { TagStore } from '../tags/store/tag-store';
-import { TagActions } from '../tags/store/actions';
+import { AppStore } from '../../../core/store/app-store';
+import { User } from '../../../model';
 
 @Component({
   selector: 'app-secure',
   templateUrl: './secure.component.html',
   styleUrls: ['./secure.component.scss']
 })
-export class SecureComponent implements OnInit {
+export class SecureComponent implements OnInit, OnDestroy {
+
+  user: User;
+  sub: any;
 
   constructor(
-      private tagActions: TagActions,
-      private tagStore: Store<TagStore>
+    private appStore: Store<AppStore>,
+    private router: Router
   ) {
+    this.sub = appStore.select(s => s.user).subscribe(user => {
+      if (!user || !user.roles["admin"])
+        this.router.navigate(['/']);
+
+      this.user = user
+    });
   }
 
   ngOnInit() {
-    this.tagStore.dispatch(this.tagActions.loadTags());
+  }
+
+  ngOnDestroy() {
+    if (this.sub)
+      this.sub.unsubscribe();
   }
 
 }

@@ -1,0 +1,22 @@
+  <md-card *ngFor="let post of posts" class="flex-item post-card">
+    <md-card-header>
+      <md-card-subtitle>
+        {{post.postText}}
+      </md-card-subtitle>
+    </md-card-header>
+    <md-card-content>
+
+      <md-chip-list>
+        <md-chip *ngFor="let tag of post.tags">
+          {{tag}}
+        </md-chip>
+      </md-chip-list>
+
+      <div>
+        <button *ngIf="showApproveButton && (post.status == 0 || post.status == 1)"
+                (click)="approveButtonClicked(post)" class="approve-button"
+                md-button color="primary">APPROVE</button>
+        <span class="post-status" *ngIf="post.status != 2">{{getDisplayStatus(post.status)}}</span>
+      </div>
+    </md-card-content>
+  </md-card>
