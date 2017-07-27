@@ -21,10 +21,11 @@ import { AppComponent } from './app.component';
 
     //rwa modules
     RoutingModule,
-    CoreModule,
+    PublicModule,
     SecureModule,
     SharedModule,
-    PublicModule
+    CoreModule
+
   ],
   providers: [
     {

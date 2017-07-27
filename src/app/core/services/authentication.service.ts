@@ -26,17 +26,18 @@ export class AuthenticationService {
     this.afAuth.authState.subscribe(afUser => {
       if(afUser) {
         // user logged in
-        //console.log(afUser);
+        console.log(afUser);
         let user = new User(afUser);
+        console.log(user);
         afUser.getIdToken(false).then((token) => {
           //console.log(token);
           user.idToken = token;
           this.store.dispatch(this.userActions.loginSuccess(user));
         });
-        if (this.dialogRef)
+        if (this.dialogRef) {
           this.dialogRef.close();
-      }
-      else {
+        }
+      } else {
         // user not logged in
         this.store.dispatch(this.userActions.logoff());
       }

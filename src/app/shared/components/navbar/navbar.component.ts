@@ -32,7 +32,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
   }
-  
+
   ngOnDestroy() {
     if (this.sub)
       this.sub.unsubscribe();
@@ -45,5 +45,5 @@ export class NavbarComponent implements OnInit {
   logout() {
     this.authService.logout();
   }
-  
+
 }

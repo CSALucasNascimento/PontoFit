@@ -13,6 +13,7 @@ import { PostAddUpdateComponent, MyPostsComponent } from './components';
 
 import { MyPostsRoutingModule } from './routing/my-posts-routing.module';
 import { SharedModule } from '../../../shared/shared.module';
+import { PublicModule } from '../../../public/public.module';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { SharedModule } from '../../../shared/shared.module';
     //ngrx effects
     EffectsModule.run(PostEffects),
 
-    SharedModule
+    SharedModule,
+    PublicModule
   ],
   providers: [
     //Services
